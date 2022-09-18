@@ -26,6 +26,10 @@ class Conta {
     return this.saldo;
   }
 
+  getExtrato() {
+    return this.extrato;
+  }
+
   depositar(valor) {
     this.saldo += valor; 
     var novo = {

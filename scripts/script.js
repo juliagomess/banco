@@ -77,12 +77,20 @@ function listarContas() {
   var lista = document.getElementById("lista");
   lista.innerHTML = '';
 
+  if(this.contas.length == 0) {
+    var aviso = document.createElement("h3");
+    var textoa = document.createTextNode("Nenhuma conta foi registrada");
+    aviso.append(textoa);
+    lista.append(aviso);
+    return;
+  }
+
   for (var i = 0; i < this.contas.length; i++) {
-    this.criaDiv(this.contas[i]);
+    criaDivContas(this.contas[i]);
   }
 }
 
-function criaDiv(infos) {
+function criaDivContas(infos) {
   var div = document.createElement("div");
   var paragrafoNome = document.createElement("p");
   var paragrafoNum = document.createElement("p");
@@ -153,4 +161,62 @@ function deposito() {
 
   num.value = '';
   valor.value = '';
+}
+
+function extrato() {
+  var num = document.getElementById("numExt");
+  var flag = 0;
+  var extrato;
+
+  if (num.value == '') {
+    alert("Você precisa especificar uma conta");
+    return;
+  }
+
+  for (var i = 0; i < this.contas.length; i++) {
+    if(this.contas[i].conta.getNum() == num.value) {
+      flag = 1;
+      extrato = this.contas[i].conta.getExtrato();
+    }
+  }
+
+  if(flag == 0) {
+    alert("Conta inexistente");
+    return;
+  }
+
+  var ext = document.getElementById("listaExt");
+  ext.innerHTML = '';
+
+  if(extrato.length == 0) {
+    var aviso = document.createElement("h3");
+    var textoa = document.createTextNode("Nenhuma operação foi realizada ainda");
+    aviso.append(textoa);
+    ext.append(aviso);
+    num.value = '';
+    return;
+  }
+
+  for (var i = 0; i < extrato.length; i++) {
+    criaDivExt(extrato[i]);
+  }
+
+  num.value = '';
+}
+
+function criaDivExt(infos) {
+  var div = document.createElement("div");
+  var paragrafoTipo = document.createElement("p");
+  var paragrafoValor = document.createElement("p");
+  var tipo = document.createTextNode("Operação: " + infos.tipo);
+  var valor = document.createTextNode("Valor: " + infos.qntd);
+
+  paragrafoTipo.append(tipo);
+  paragrafoValor.append(valor);
+
+  div.append(paragrafoTipo);
+  div.append(paragrafoValor);
+
+  var ext = document.getElementById("listaExt");
+  ext.append(div);
 }
