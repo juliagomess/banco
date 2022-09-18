@@ -42,7 +42,7 @@ function criaConta() {
   if (basica.checked) {
     c = {
       conta : new Basica(num.value, nome.value),
-      tipo : "Básica",
+      tipo : "Basica",
       contE : 0,
       contT : 0, 
     } 
@@ -181,7 +181,7 @@ function extrato() {
       flag = 1;
 
       this.contas[i].contE++;
-      if(this.contas[i].tipo == "Básica") {
+      if(this.contas[i].tipo == "Basica") {
         if(this.contas[i].contE > 3) {
           this.contas[i].conta.opExcedente();
         }
@@ -262,14 +262,32 @@ function transferencia() {
 
   for (var i = 0; i < this.contas.length; i++) {
     if(this.contas[i].conta.getNum() == numRem.value) {
+      this.contas[i].contT++;
+      if(this.contas[i].tipo == "Basica") {
+        if(this.contas[i].contT > 3) {
+          this.contas[i].conta.opExcedente();
+        }
+      } else if(this.contas[i].tipo == "Estudante") {
+        if(this.contas[i].contT > 1) {
+          this.contas[i].conta.opExcedente();
+        }
+      }
       this.contas[i].conta.transfere('S', parseFloat(valor.value));
+
     } else if(this.contas[i].conta.getNum() == numDest.value) {
       this.contas[i].conta.transfere('E', parseFloat(valor.value));
     }
   }
   alert("Transferência realizada com sucesso!");
-  
+
   numRem.value = '';
   numDest.value = ''; 
   valor.value = '';
+}
+
+function reset() {
+  for (var i = 0; i < this.contas.length; i++) {
+    this.contas[i].contE = 0;
+    this.contas[i].contT = 0;
+  }
 }
