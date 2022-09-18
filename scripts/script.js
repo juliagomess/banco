@@ -43,19 +43,22 @@ function criaConta() {
     c = {
       conta : new Basica(num.value, nome.value),
       tipo : "Básica",
-      cont : 0,
+      contE : 0,
+      contT : 0, 
     } 
   } else if (platinum.checked) {
     c = {
       conta: new Platinum(num.value, nome.value),
       tipo : "Platinum",
-      cont: -1,
+      contE : -1,
+      contT : -1, 
     } 
   } else {
     c = {
       conta: new Estudante(num.value, nome.value),
       tipo : "Estudante",
-      cont: 0,
+      contE : 0,
+      contT : 0, 
     } 
   }
 
@@ -124,7 +127,7 @@ function saque() {
   for (var i = 0; i < this.contas.length; i++) {
     if(this.contas[i].conta.getNum() == num.value) {
       flag = 1;
-      this.contas[i].conta.sacar(parseInt(valor.value));
+      this.contas[i].conta.sacar(parseFloat(valor.value));
     }
   }
 
@@ -150,7 +153,7 @@ function deposito() {
   for (var i = 0; i < this.contas.length; i++) {
     if(this.contas[i].conta.getNum() == num.value) {
       flag = 1;
-      this.contas[i].conta.depositar(parseInt(valor.value));
+      this.contas[i].conta.depositar(parseFloat(valor.value));
     }
   }
 
@@ -176,6 +179,18 @@ function extrato() {
   for (var i = 0; i < this.contas.length; i++) {
     if(this.contas[i].conta.getNum() == num.value) {
       flag = 1;
+
+      this.contas[i].contE++;
+      if(this.contas[i].tipo == "Básica") {
+        if(this.contas[i].contE > 3) {
+          this.contas[i].conta.opExcedente();
+        }
+      } else if(this.contas[i].tipo == "Estudante") {
+        if(this.contas[i].contE > 1) {
+          this.contas[i].conta.opExcedente();
+        }
+      }
+      
       extrato = this.contas[i].conta.getExtrato();
     }
   }
@@ -219,4 +234,42 @@ function criaDivExt(infos) {
 
   var ext = document.getElementById("listaExt");
   ext.append(div);
+}
+
+function transferencia() {
+  var numRem = document.getElementById("numRem");
+  var numDest = document.getElementById("numDest");
+  var valor = document.getElementById("valorTrans");
+  var flag = 0;
+
+  if (numRem.value == '' && numDest.value == '' && valor.value == '') {
+    alert("Você precisa preencher todos os campos");
+    return;
+  }
+
+  for (var i = 0; i < this.contas.length; i++) {
+    if(this.contas[i].conta.getNum() == numRem.value) {
+      flag++;
+    } else if(this.contas[i].conta.getNum() == numDest.value) {
+      flag++;
+    }
+  }
+
+  if(flag < 2) {
+    alert("Conta inexistente");
+    return;
+  }
+
+  for (var i = 0; i < this.contas.length; i++) {
+    if(this.contas[i].conta.getNum() == numRem.value) {
+      this.contas[i].conta.transfere('S', parseFloat(valor.value));
+    } else if(this.contas[i].conta.getNum() == numDest.value) {
+      this.contas[i].conta.transfere('E', parseFloat(valor.value));
+    }
+  }
+  alert("Transferência realizada com sucesso!");
+  
+  numRem.value = '';
+  numDest.value = ''; 
+  valor.value = '';
 }

@@ -39,6 +39,24 @@ class Conta {
     this.extrato.push(novo);
     alert("Depósito realizado com sucesso!");
   }
+
+  transfere(ES,valor) {
+    if(ES == 'E') {
+      this.saldo += valor;
+      var novo = {
+        tipo: "Transferência (Entrada)",
+        qntd: valor,
+      }
+      this.extrato.push(novo);
+    } else {
+      this.saldo -= valor;
+      var novo = {
+        tipo: "Transferência (Saída)",
+        qntd: valor,
+      }
+      this.extrato.push(novo);
+    }
+  }
 }
 
 class Platinum extends Conta {
@@ -68,6 +86,15 @@ class Basica extends Conta {
     this.extrato.push(novo);
     alert("Saque realizado com sucesso!");
   }
+
+  opExcedente() {
+    this.saldo -= 0.5;
+    var novo = {
+      tipo: "Operação excedente",
+      qntd: 0.5,
+    }
+    this.extrato.push(novo);
+  }
 }
 
 class Estudante extends Conta {
@@ -84,5 +111,14 @@ class Estudante extends Conta {
     }
     this.extrato.push(novo);
     alert("Saque realizado com sucesso!");
+  }
+
+  opExcedente() {
+    this.saldo -= 0.5;
+    var novo = {
+      tipo: "Operação excedente",
+      qntd: 0.5,
+    }
+    this.extrato.push(novo);
   }
 }
