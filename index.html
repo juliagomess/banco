@@ -7,6 +7,53 @@
     <title>Banco</title>
   </head>
   <body>
+    <div id="criaConta">
+      <h1> Criando Conta </h1>
+      <input type="text" id="numCria" placeholder="Numero" value="1" disabled>
+      <input type="text" id="nomeCria" placeholder="Nome">
+      <input type="checkbox" id="platinum" value="platinum" onclick="desabilita()"> Platinum
+      <input type="checkbox" id="basica" value="basica" onclick="desabilita()"> Básica
+      <input type="checkbox" id="estudante" value="estudante" onclick="desabilita()"> Estudante
+      <button onclick="criaConta()"> Criar </button>
+    </div>
+
+    <div id="listarContas">
+      <button onclick="listarContas()"> Listar Contas </button>
+      <div id="lista"></div>
+    </div>
+
+    <div id="saque">
+      <h1> Saque de Dinheiro </h1>
+      <input type="text" id="numSaque" placeholder="Numero">
+      <input type="number" id="valorSaque" placeholder="Valor">
+      <button onclick="saque()"> Sacar </button>
+    </div>
+
+    <div id="deposito">
+      <h1> Depósito de Dinheiro </h1>
+      <input type="text" id="numDep" placeholder="Numero">
+      <input type="number" id="valorDep" placeholder="Valor">
+      <button onclick="deposito()"> Depositar </button>
+    </div>
+
+    <div id="transferencia">
+      <h1> Transferência </h1>
+      <h2> Remetente </h2>
+      <input type="text" placeholder="Numero">
+      <h2> Destinatário </h2>
+      <input type="text" placeholder="Numero">
+
+      <input type="number" placeholder="Valor">
+      <button > Transferir </button>
+    </div>
+
+    <div id="extrato">
+      <h1> Gerar extrato </h1>
+      <input type="text" placeholder="Numero">
+      <button> Gerar </button>
+    </div>
     
+    <script src="scripts/Conta.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
