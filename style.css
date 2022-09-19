@@ -9,9 +9,35 @@
   justify-content: space-evenly;
 }
 
-h1 {
+h1,h3 {
   margin: 0;
+  margin-bottom: 10px;
   color: #234567;
+}
+
+.popup {
+  width: 400px;
+  min-height: 100px;
+  background-color: #b1dae7;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-pop {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(1);
+}
+
+#lista {
+  margin-top: 50px;
 }
 
 /* From uiverse.io by @JoseIsra */
@@ -163,15 +189,15 @@ h1 {
 }
 
 .form__field:focus {
-  border: 1px solid #B9192C !important;
+  border: 1px solid #234567 !important;
   outline: none;
 }
 
 .form__field:focus ~ .form__label {
   background-color: white;
-  border-right: 1px solid #B9192C;
-  border-left: 1px solid #B9192C;
-  color: #B9192C;
+  border-right: 1px solid #234567;
+  border-left: 1px solid #234567;
+  color: #234567;
   font-size: .9em;
   margin-left: 10px;
   padding: 0 10px;

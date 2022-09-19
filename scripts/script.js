@@ -77,6 +77,7 @@ function criaConta() {
 }
 
 function listarContas() {
+  this.openPopup();
   var lista = document.getElementById("lista");
   lista.innerHTML = '';
 
@@ -91,6 +92,7 @@ function listarContas() {
   for (var i = 0; i < this.contas.length; i++) {
     criaDivContas(this.contas[i]);
   }
+  
 }
 
 function criaDivContas(infos) {
@@ -171,6 +173,7 @@ function deposito() {
 }
 
 function extrato() {
+  this.openPopup();
   var num = document.getElementById("numExt");
   var flag = 0;
   var extrato;
@@ -204,7 +207,7 @@ function extrato() {
     return;
   }
 
-  var ext = document.getElementById("listaExt");
+  var ext = document.getElementById("lista");
   ext.innerHTML = '';
 
   if(extrato.length == 0) {
@@ -236,7 +239,7 @@ function criaDivExt(infos) {
   div.append(paragrafoTipo);
   div.append(paragrafoValor);
 
-  var ext = document.getElementById("listaExt");
+  var ext = document.getElementById("lista");
   ext.append(div);
 }
 
@@ -295,4 +298,14 @@ function reset() {
     this.contas[i].contT = 0;
   }
   alert("Mês avançado com sucesso");
+}
+
+function openPopup() {
+  var pop = document.getElementById("pop");
+  pop.classList.add("open-pop");
+}
+
+function closePopup() {
+  var pop = document.getElementById("pop");
+  pop.classList.remove("open-pop");
 }
