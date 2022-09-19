@@ -13,7 +13,7 @@
         <div class="card">
           <div class="content">
               <div class="front">
-                  <h3 class="title">Criar Conta</h3>
+                  <h1 class="title">Criar Conta</h1>
               </div>
 
               <div class="back">
@@ -34,7 +34,7 @@
                       <input type="checkbox" id="estudante" value="estudante" onclick="desabilita()"> Estudante
                     </div>
 
-                    <button onclick="criaConta()"> Criar </button>
+                    <button class="button" onclick="criaConta()"> Criar </button>
                   </div>
               </div>
           </div>
@@ -43,7 +43,7 @@
         <div class="card">
           <div class="content">
               <div class="front">
-                  <h3 class="title">Saque</h3>
+                  <h1 class="title">Saque</h1>
               </div>
 
               <div class="back">
@@ -60,7 +60,7 @@
                       <label for="name" class="form__label"> Valor </label>
                     </div>
 
-                    <button onclick="saque()"> Sacar </button>
+                    <button class="button" onclick="saque()"> Sacar </button>
                   </div>
               </div>
           </div>
@@ -69,7 +69,7 @@
         <div class="card">
           <div class="content">
               <div class="front">
-                  <h3 class="title">Depósito</h3>
+                  <h1 class="title">Depósito</h1>
               </div>
 
               <div class="back">
@@ -86,7 +86,7 @@
                       <label for="name" class="form__label"> Valor </label>
                     </div>
 
-                    <button onclick="deposito()"> Depositar </button>
+                    <button class="button" onclick="deposito()"> Depositar </button>
                   </div>
               </div>
           </div>
@@ -97,7 +97,7 @@
         <div class="card">
           <div class="content" style="width: 300px;">
               <div class="front">
-                  <h3 class="title">Transferência</h3>
+                  <h1 class="title">Transferência</h1>
               </div>
 
               <div class="back">
@@ -106,7 +106,7 @@
 
                     <div class="linha">
                       <div>
-                        <div class="form__group">
+                        <div class="form__group" style="margin-right: 5px;">
                           <input type="text" id="numRem" class="form__field w-100" placeholder="Input text">
                           <label for="name" class="form__label"> Numero Remetente </label>
                         </div>
@@ -119,21 +119,21 @@
                       </div>
                     </div>
 
-                    <div class="form__group" style="margin: 0 auto;">
+                    <div class="form__group">
                       <input type="text" id="valorTrans" class="form__field w-100" placeholder="Input text">
                       <label for="name" class="form__label"> Valor </label>
                     </div>
 
-                    <button onclick="transferencia()"> Transferir </button>
+                    <button class="button" onclick="transferencia()"> Transferir </button>
                   </div>
               </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="content">
+          <div class="content" style="width: 300px;">
               <div class="front">
-                  <h3 class="title">Gerar extrato</h3>
+                  <h1 class="title">Gerar extrato</b1>
               </div>
 
               <div class="back">
@@ -144,7 +144,7 @@
                       <label for="name" class="form__label"> Numero Conta </label>
                     </div>
 
-                    <button onclick="extrato()"> Gerar </button>
+                    <button class="button" onclick="extrato()"> Gerar </button>
                     <div id="listaExt"></div>
                   </div>
               </div>

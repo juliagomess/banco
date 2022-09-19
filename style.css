@@ -9,6 +9,11 @@
   justify-content: space-evenly;
 }
 
+h1 {
+  margin: 0;
+  color: #234567;
+}
+
 /* From uiverse.io by @JoseIsra */
 .card {
   margin: 10px auto;
@@ -49,7 +54,7 @@
 
 .back {
   transform: rotateY(0.5turn);
-  background-color: #009bff;
+  background-color: rgb(127, 204, 240);
 }
 
 .description {
@@ -117,9 +122,9 @@
 
  /* From uiverse.io by @Alien14k */
 .form__group {
-  margin: 15px 5px;
   position: relative;
   width: 200px;
+  margin: 15px auto;
 }
 
 .form__field {
@@ -174,3 +179,53 @@
   top: -10px;
   transition: 0.2s;
 }
+
+/* From uiverse.io */
+.button {
+  --color: #234567;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+ }
+ 
+ .button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+ }
+ 
+ .button:hover {
+  color: #fff;
+ }
+ 
+ .button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+ }
+ 
+ .button:hover:before {
+  top: -30px;
+  left: -30px;
+ }
+ 
+ .button:active:before {
+  background: #234567;
+  transition: background 0s;
+ }
