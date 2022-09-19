@@ -1,0 +1,176 @@
+#container {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.linha {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* From uiverse.io by @JoseIsra */
+.card {
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+  transition: all 2.25s;
+  background-color: rgb(127, 204, 240);
+  padding: 5em;
+  min-height: 10rem;
+  min-width: 10rem;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY(0.5turn);
+}
+
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.title {
+  transform: translateZ(5rem);
+  font-size: 2rem;
+}
+
+.back {
+  transform: rotateY(0.5turn);
+  background-color: #009bff;
+}
+
+.description {
+  transform: translateZ(3rem);
+  margin-top: 0;
+}
+
+/* From uiverse.io by @alexmaracinaru */
+.cta {
+  position: relative;
+  padding: 12px 18px;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  cursor: pointer;
+ }
+ 
+ .cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 50px;
+  background: #b1dae7;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+ }
+ 
+ .cta span {
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #234567;
+ }
+ 
+ .cta svg {
+  position: relative;
+  top: 0;
+  margin-left: 10px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #234567;
+  stroke-width: 2;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+ }
+ 
+ .cta:hover:before {
+  width: 100%;
+  background: #b1dae7;
+ }
+ 
+ .cta:hover svg {
+  transform: translateX(0);
+ }
+ 
+ .cta:active {
+  transform: scale(0.95);
+ }
+
+ /* From uiverse.io by @Alien14k */
+.form__group {
+  margin: 15px 5px;
+  position: relative;
+  width: 200px;
+}
+
+.form__field {
+  border: 1px solid silver !important;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #313a46;
+  height: 40px;
+  padding: 0rem 15px;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  top: 10px;
+  border-right: none;
+  border-left: none;
+}
+
+.form__label {
+  background-color: white;
+  border-left: 1px solid silver;
+  border-right: 1px solid silver;
+  color: #9b9b9b;
+  display: block;
+  font-size: .9em;
+  margin-left: 10px;
+  padding: 0 10px;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  transition: 0.2s;
+  margin-left: 30px;
+}
+
+.form__field:focus {
+  border: 1px solid #B9192C !important;
+  outline: none;
+}
+
+.form__field:focus ~ .form__label {
+  background-color: white;
+  border-right: 1px solid #B9192C;
+  border-left: 1px solid #B9192C;
+  color: #B9192C;
+  font-size: .9em;
+  margin-left: 10px;
+  padding: 0 10px;
+  position: absolute;
+  top: -10px;
+  transition: 0.2s;
+}

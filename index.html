@@ -4,57 +4,176 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Banco</title>
   </head>
   <body>
-    <div id="criaConta">
-      <h1> Criando Conta </h1>
-      <input type="text" id="numCria" placeholder="Numero" value="1" disabled>
-      <input type="text" id="nomeCria" placeholder="Nome">
-      <input type="checkbox" id="platinum" value="platinum" onclick="desabilita()"> Platinum
-      <input type="checkbox" id="basica" value="basica" onclick="desabilita()"> Básica
-      <input type="checkbox" id="estudante" value="estudante" onclick="desabilita()"> Estudante
-      <button onclick="criaConta()"> Criar </button>
-    </div>
+    <div id="container">
+      <div class="linha">
+        <div class="card">
+          <div class="content">
+              <div class="front">
+                  <h3 class="title">Criar Conta</h3>
+              </div>
 
-    <div id="listarContas">
-      <button onclick="listarContas()"> Listar Contas </button>
-      <div id="lista"></div>
-    </div>
+              <div class="back">
+                  <div class="description">
+                    <h1> Criar Conta </h1>
+                    <div class="form__group">
+                      <input type="text" id="numCria" class="form__field w-100" placeholder="Input text" value="1" disabled>
+                      <label for="name" class="form__label"> Numero Conta </label>
+                    </div>
+                    <div class="form__group">
+                      <input type="text" id="nomeCria" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Nome </label>
+                    </div>
 
-    <div id="saque">
-      <h1> Saque de Dinheiro </h1>
-      <input type="text" id="numSaque" placeholder="Numero">
-      <input type="number" id="valorSaque" placeholder="Valor">
-      <button onclick="saque()"> Sacar </button>
-    </div>
+                    <div>
+                      <input type="checkbox" id="platinum" value="platinum" onclick="desabilita()"> Platinum
+                      <input type="checkbox" id="basica" value="basica" onclick="desabilita()"> Básica
+                      <input type="checkbox" id="estudante" value="estudante" onclick="desabilita()"> Estudante
+                    </div>
 
-    <div id="deposito">
-      <h1> Depósito de Dinheiro </h1>
-      <input type="text" id="numDep" placeholder="Numero">
-      <input type="number" id="valorDep" placeholder="Valor">
-      <button onclick="deposito()"> Depositar </button>
-    </div>
+                    <button onclick="criaConta()"> Criar </button>
+                  </div>
+              </div>
+          </div>
+        </div>
 
-    <div id="transferencia">
-      <h1> Transferência </h1>
-      <h2> Remetente </h2>
-      <input type="text" id="numRem" placeholder="Numero">
-      <h2> Destinatário </h2>
-      <input type="text" id="numDest" placeholder="Numero">
+        <div class="card">
+          <div class="content">
+              <div class="front">
+                  <h3 class="title">Saque</h3>
+              </div>
 
-      <input type="number" id="valorTrans" placeholder="Valor">
-      <button onclick="transferencia()"> Transferir </button>
-    </div>
+              <div class="back">
+                  <div class="description">
 
-    <div id="extrato">
-      <h1> Gerar extrato </h1>
-      <input type="text" id="numExt" placeholder="Numero">
-      <button onclick="extrato()"> Gerar </button>
-      <div id="listaExt"></div>
+                    <h1> Saque de Dinheiro </h1>
+                    <div class="form__group">
+                      <input type="text" id="numSaque" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Numero Conta </label>
+                    </div>
+
+                    <div class="form__group">
+                      <input type="text" id="valorSaque" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Valor </label>
+                    </div>
+
+                    <button onclick="saque()"> Sacar </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="content">
+              <div class="front">
+                  <h3 class="title">Depósito</h3>
+              </div>
+
+              <div class="back">
+                  <div class="description">
+
+                    <h1> Depósito de Dinheiro </h1>
+                    <div class="form__group">
+                      <input type="text" id="numDep" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Numero Conta </label>
+                    </div>
+
+                    <div class="form__group">
+                      <input type="text" id="valorDep" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Valor </label>
+                    </div>
+
+                    <button onclick="deposito()"> Depositar </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="card">
+          <div class="content" style="width: 300px;">
+              <div class="front">
+                  <h3 class="title">Transferência</h3>
+              </div>
+
+              <div class="back">
+                  <div class="description">
+                    <h1> Transferência </h1>
+
+                    <div class="linha">
+                      <div>
+                        <div class="form__group">
+                          <input type="text" id="numRem" class="form__field w-100" placeholder="Input text">
+                          <label for="name" class="form__label"> Numero Remetente </label>
+                        </div>
+                      </div>
+                      <div>
+                          <div class="form__group">
+                            <input type="text" id="numDest" class="form__field w-100" placeholder="Input text">
+                            <label for="name" class="form__label"> Numero Destinatario </label>
+                          </div>
+                      </div>
+                    </div>
+
+                    <div class="form__group" style="margin: 0 auto;">
+                      <input type="text" id="valorTrans" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Valor </label>
+                    </div>
+
+                    <button onclick="transferencia()"> Transferir </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="content">
+              <div class="front">
+                  <h3 class="title">Gerar extrato</h3>
+              </div>
+
+              <div class="back">
+                  <div class="description">
+                    <h1> Gerar extrato </h1>
+                    <div class="form__group">
+                      <input type="text" id="numExt" class="form__field w-100" placeholder="Input text">
+                      <label for="name" class="form__label"> Numero Conta </label>
+                    </div>
+
+                    <button onclick="extrato()"> Gerar </button>
+                    <div id="listaExt"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="linha">
+          <div id="listarContas">
+          <button class="cta" onclick="listarContas()">
+            <span>Listar Contas</span>
+            <svg viewBox="0 0 13 10" height="10px" width="15px">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
+          <div id="lista"></div>
+        </div>
+        
+        <button class="cta" onclick="reset()">
+          <span>Avançar o mês</span>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </button>
+      </div>
+      
     </div>
-    
-    <button onclick="reset()"> Avançar o mês </button>
 
     <script src="scripts/Conta.js"></script>
     <script src="scripts/script.js"></script>

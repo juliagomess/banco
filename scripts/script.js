@@ -98,17 +98,21 @@ function criaDivContas(infos) {
   var paragrafoNome = document.createElement("p");
   var paragrafoNum = document.createElement("p");
   var paragrafoTipo = document.createElement("p");
+  var paragrafoSaldo = document.createElement("p");
   var nome = document.createTextNode("Nome: " + infos.conta.getNome());
   var num = document.createTextNode("Numero: " + infos.conta.getNum());
-  var tipo = document.createTextNode("Hora Entrada: " + infos.tipo);
+  var tipo = document.createTextNode("Tipo: " + infos.tipo);
+  var saldo = document.createTextNode("Saldo: R$" + infos.conta.getSaldo());
 
   paragrafoNome.append(nome);
   paragrafoNum.append(num);
   paragrafoTipo.append(tipo);
+  paragrafoSaldo.append(saldo);
 
   div.append(paragrafoNome);
   div.append(paragrafoNum);
   div.append(paragrafoTipo);
+  div.append(paragrafoSaldo);
 
   var lista = document.getElementById("lista");
   lista.append(div);
@@ -290,4 +294,5 @@ function reset() {
     this.contas[i].contE = 0;
     this.contas[i].contT = 0;
   }
+  alert("Mês avançado com sucesso");
 }
