@@ -180,7 +180,6 @@ function deposito() {
 }
 
 function extrato() {
-  this.openPopup();
   var num = document.getElementById("numExt");
   var flag = 0;
   var extrato;
@@ -220,6 +219,8 @@ function extrato() {
     alert("Conta inexistente");
     return;
   }
+
+  this.openPopup();
 
   if(extrato.length == 0) {
     var aviso = document.createElement("h3");
