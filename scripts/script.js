@@ -96,6 +96,13 @@ function listarContas() {
 }
 
 function criaDivContas(infos) {
+  var lista = document.getElementById("lista");
+
+  var titulo = document.createElement("h1");
+  var txtTitulo = document.createTextNode("Contas Registradas");
+  titulo.append(txtTitulo);
+  lista.append(titulo);
+
   var div = document.createElement("div");
   var paragrafoNome = document.createElement("p");
   var paragrafoNum = document.createElement("p");
@@ -115,8 +122,8 @@ function criaDivContas(infos) {
   div.append(paragrafoNum);
   div.append(paragrafoTipo);
   div.append(paragrafoSaldo);
+  div.setAttribute("class", "itens");
 
-  var lista = document.getElementById("lista");
   lista.append(div);
 }
 
@@ -177,6 +184,8 @@ function extrato() {
   var num = document.getElementById("numExt");
   var flag = 0;
   var extrato;
+  var ext = document.getElementById("lista");
+  ext.innerHTML = '';
 
   if (num.value == '') {
     alert("Você precisa especificar uma conta");
@@ -199,6 +208,11 @@ function extrato() {
       }
       
       extrato = this.contas[i].conta.getExtrato();
+
+      var titulo = document.createElement("h1");
+      var txtTitulo = document.createTextNode("Extrato da conta " + this.contas[i].conta.getNum());
+      titulo.append(txtTitulo);
+      ext.append(titulo);
     }
   }
 
@@ -206,9 +220,6 @@ function extrato() {
     alert("Conta inexistente");
     return;
   }
-
-  var ext = document.getElementById("lista");
-  ext.innerHTML = '';
 
   if(extrato.length == 0) {
     var aviso = document.createElement("h3");
@@ -238,6 +249,7 @@ function criaDivExt(infos) {
 
   div.append(paragrafoTipo);
   div.append(paragrafoValor);
+  div.setAttribute("class", "itens");
 
   var ext = document.getElementById("lista");
   ext.append(div);
