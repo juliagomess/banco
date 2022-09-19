@@ -224,7 +224,7 @@ function criaDivExt(infos) {
   var paragrafoTipo = document.createElement("p");
   var paragrafoValor = document.createElement("p");
   var tipo = document.createTextNode("Operação: " + infos.tipo);
-  var valor = document.createTextNode("Valor: " + infos.qntd);
+  var valor = document.createTextNode("Valor: R$" + infos.qntd);
 
   paragrafoTipo.append(tipo);
   paragrafoValor.append(valor);
